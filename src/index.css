@@ -1,0 +1,175 @@
+:root {
+  --ink: #1c1c1c;
+  --navy: #070d16;
+  --gold: #c6a46a;
+  --brand: #e10600;
+  --line: #e4ddd2;
+  --paper: #f6f3ee;
+  --muted: #6d675f;
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.5;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+img { max-width: 100%; display: block; }
+
+.shell { min-height: 100vh; }
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--navy);
+  color: white;
+}
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: white;
+}
+.brand span {
+  font-family: "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--brand);
+  line-height: 1;
+}
+.brand small {
+  margin-top: 4px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  color: var(--gold);
+}
+.topbar p {
+  margin: 0;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+main { max-width: 1100px; margin: 0 auto; padding: 28px 20px 64px; }
+h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 500; }
+h1 { margin: 6px 0 0; font-size: 2.4rem; }
+h2 { margin: 28px 0 12px; font-size: 1.6rem; }
+p { margin: 0 0 12px; }
+
+.page-head, .row-actions, .topbar { }
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.eyebrow {
+  margin: 0;
+  color: var(--gold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+.muted { color: var(--muted); }
+.hint { color: var(--muted); font-size: 0.92rem; }
+
+button, .file-button {
+  border: 1px solid var(--ink);
+  background: white;
+  padding: 8px 14px;
+}
+.primary { background: var(--navy); color: white; border-color: var(--navy); }
+.ghost { background: transparent; color: white; border-color: rgba(255, 255, 255, 0.35); }
+.login {
+  max-width: 420px;
+  margin: 48px auto;
+  display: grid;
+  gap: 14px;
+  padding: 28px;
+  background: white;
+  border: 1px solid var(--line);
+}
+.login h1 { margin-bottom: 0; }
+.login .primary { justify-self: start; margin-top: 6px; }
+.danger { color: var(--brand); border-color: var(--brand); }
+.text-button { border: 0; background: transparent; padding: 0; color: var(--navy); text-decoration: underline; }
+.file-button { display: inline-block; }
+.file-button input { display: none; }
+.row-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+.banner { padding: 12px 14px; background: white; border: 1px solid var(--line); }
+.banner.error, .form-error { color: var(--brand); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.card { background: white; border: 1px solid var(--line); }
+.card img, .card-empty { height: 180px; width: 100%; object-fit: cover; background: #ece7df; }
+.card-empty { display: grid; place-items: center; color: var(--muted); }
+.card-body { padding: 16px; }
+.card-body h2 { margin: 4px 0 6px; font-size: 1.5rem; }
+
+fieldset {
+  margin: 0 0 18px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+legend { padding: 0 6px; font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; }
+label { display: grid; gap: 6px; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+input, textarea, select {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: white;
+  padding: 10px 12px;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink);
+  font-size: 1rem;
+}
+.wide { grid-column: 1 / -1; }
+.repeat {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.repeat.inline { grid-template-columns: 1.4fr 0.6fr auto; align-items: end; }
+.stack-row { display: grid; gap: 6px; margin-bottom: 10px; }
+.label { display: block; margin-bottom: 8px; font-size: 0.82rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); margin: 0 0 20px; }
+.facts div { background: white; padding: 14px; }
+.facts dt { color: var(--muted); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.facts dd { margin: 4px 0 0; font-family: "Playfair Display", Georgia, serif; font-size: 1.3rem; }
+.lead { font-size: 1.15rem; }
+
+.gallery, .gallery-edit { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.gallery figure { margin: 0; background: white; border: 1px solid var(--line); }
+.gallery img, .image-field img, .sheet { width: 100%; height: 180px; object-fit: cover; background: #ece7df; }
+.sheet { height: auto; max-height: 420px; object-fit: contain; }
+.gallery figcaption { padding: 8px 10px; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.image-field { display: grid; gap: 8px; }
+.image-empty { height: 140px; display: grid; place-items: center; background: #ece7df; color: var(--muted); }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.note { background: white; border: 1px solid var(--line); padding: 14px; margin-bottom: 10px; }
+.nearby { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0; list-style: none; }
+.nearby li { background: white; border: 1px solid var(--line); padding: 12px; }
+
+@media (max-width: 760px) {
+  fieldset, .facts, .split, .repeat, .repeat.inline, .nearby { grid-template-columns: 1fr; }
+  .page-head { align-items: flex-start; flex-direction: column; }
+}
