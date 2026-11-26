@@ -1,4 +1,4 @@
-const API = import.meta.env.VITE_API_URL || "http://82.112.236.73/api/demandrealestate";
+const API = import.meta.env.VITE_API_URL || "https://packagemakerbackend.demandsetutours.com/api/demandrealestate";
 
 async function request(path, options = {}) {
   const response = await fetch(`${API}${path}`, {
