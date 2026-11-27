@@ -44,7 +44,8 @@ export function ProjectDetail({ id, onBack, onEdit, onDeleted }) {
 
   if (!project) return <p className="muted">Loading project…</p>;
 
-  const views = (project.media || []).filter((item) => item.url);
+  const views = (project.media || []).filter((item) => item.url && item.kind !== "pdf");
+  const pdfs = (project.media || []).filter((item) => item.url && item.kind === "pdf");
 
   return (
     <section>
@@ -129,6 +130,21 @@ export function ProjectDetail({ id, onBack, onEdit, onDeleted }) {
           </tbody>
         </table>
       </div>
+
+      {pdfs.length ? (
+        <>
+          <h2>PDFs</h2>
+          <ul className="nearby">
+            {pdfs.map((item) => (
+              <li key={item.url}>
+                <a href={item.url} target="_blank" rel="noreferrer">
+                  {item.label || "PDF"}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : null}
 
       <h2>Photos</h2>
       <div className="gallery">

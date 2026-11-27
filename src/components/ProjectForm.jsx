@@ -226,13 +226,14 @@ export function ProjectForm({ id, onCancel, onSaved }) {
           {form.media.map((item, index) => (
             <div key={`${item.url}-${index}`} className="repeat">
               <ImageField
-                label={item.label || `Photo ${index + 1}`}
+                label={item.kind === "pdf" ? item.label || `PDF ${index + 1}` : item.label || `Photo ${index + 1}`}
                 url={item.url}
                 folder={folder}
+                accept={item.kind === "pdf" ? "application/pdf,.pdf" : "image/*"}
                 onChange={(url) => updateList("media", index, { url })}
               />
               <label>
-                Label
+                {item.kind === "pdf" ? "PDF name" : "Label"}
                 <input value={item.label} onChange={(event) => updateList("media", index, { label: event.target.value })} />
               </label>
               <label>
@@ -241,6 +242,7 @@ export function ProjectForm({ id, onCancel, onSaved }) {
                   <option value="view">view</option>
                   <option value="floor-plan">floor-plan</option>
                   <option value="approval">approval</option>
+                  <option value="pdf">pdf</option>
                 </select>
               </label>
               <button type="button" className="text-button" onClick={() => setField("media", form.media.filter((_, mediaIndex) => mediaIndex !== index))}>
